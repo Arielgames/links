@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Contatos com Clientes 15/10</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#687e61;--card:#fff;--ink:#1a1d24;--mut:#6b7280;--line:#e5e7eb;--accent:#687e61;--accent-soft:#eff2ef;--accent-mid:#dde2dc;--radius:16px}
+:root{
+  --ok:#2f6b46;   --ok-bg:#e6f1e9;
+  --warn:#96601a; --warn-bg:#fbf1e0;
+  --risk:#a33232; --risk-bg:#fbeaea;
+  --neutral:#5c6672; --neutral-bg:#eef0f2;
+  --font-display:"Archivo","Inter",Arial,Helvetica,sans-serif;
+  --font-body:"Inter",Arial,Helvetica,sans-serif;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:15px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{
+  max-width:1040px;
+  margin:0 auto;
+  padding-block:44px 32px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+}
+h1,h2,h3,.num{font-family:var(--font-display);text-wrap:balance}
+h2{font-size:clamp(18px,2.4vw,22px);font-weight:700;color:#fff;margin:0;letter-spacing:-.01em}
+h3{font-size:16px;font-weight:700;margin:0;letter-spacing:-.01em}
+p{margin:0}
+
+/* ---------- cabeçalho ---------- */
+header{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.logo{height:80px;width:80px;border-radius:16px;border:3px solid #fff;object-fit:cover;box-shadow:0 3px 12px rgba(0,0,0,.28);margin-bottom:14px}
+.kicker{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#fff;opacity:.9;margin-top:8px}
+header h1{font-size:clamp(30px,5vw,46px);font-weight:800;letter-spacing:-.025em;margin:6px 0 2px}
+header p{font-size:14px;color:rgba(255,255,255,.85);max-width:60ch}
+
+/* ---------- números do dia ---------- */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:12px}
+.tile{
+  background:var(--card);border-radius:var(--radius);padding:18px 18px 16px;
+  border-left:4px solid var(--accent);display:flex;flex-direction:column;gap:2px;
+}
+.tile .num{font-size:34px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.tile span{font-size:12px;font-weight:600;color:var(--mut);line-height:1.35}
+.tile.ok{border-left-color:var(--ok)}      .tile.ok .num{color:var(--ok)}
+.tile.warn{border-left-color:var(--warn)}  .tile.warn .num{color:var(--warn)}
+.tile.quiet{border-left-color:var(--neutral)} .tile.quiet .num{color:var(--neutral)}
+.tile .num{color:var(--accent)}
+
+/* ---------- faixa de alerta ---------- */
+.alert{
+  background:var(--card);border-radius:var(--radius);border-left:6px solid var(--risk);
+  padding:16px 20px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;
+}
+.alert b{font-family:var(--font-display);font-size:16px;font-weight:700}
+.alert span{color:var(--mut);font-size:14px}
+
+/* ---------- seções ---------- */
+section{display:flex;flex-direction:column;gap:14px}
+.sec-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.count{
+  font-family:var(--font-display);font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;
+  color:#fff;background:rgba(255,255,255,.2);border-radius:999px;padding:2px 9px;
+}
+.sec-sub{color:rgba(255,255,255,.78);font-size:13.5px;margin-top:-8px}
+
+/* ---------- cartões de contato efetivo ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.card{
+  background:var(--card);border-radius:var(--radius);padding:18px;
+  display:flex;flex-direction:column;gap:10px;min-width:0;
+}
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.card p{font-size:14px;color:#39414b}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.chip{
+  font-family:var(--font-display);font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  border-radius:999px;padding:4px 10px;white-space:nowrap;
+}
+.chip.ok{background:var(--ok-bg);color:var(--ok)}
+.chip.warn{background:var(--warn-bg);color:var(--warn)}
+.chip.risk{background:var(--risk-bg);color:var(--risk)}
+.chip.neutral{background:var(--neutral-bg);color:var(--neutral)}
+.chip.brand{background:var(--accent-soft);color:var(--accent)}
+
+/* ---------- lista de quem não atendeu ---------- */
+.list{list-style:none;margin:0;padding:0;background:var(--card);border-radius:var(--radius);overflow:hidden}
+.list li{
+  display:grid;grid-template-columns:190px 1fr auto;align-items:center;gap:6px 16px;
+  padding:13px 20px;border-top:1px solid var(--line);
+}
+.list li:first-child{border-top:0}
+.list .nm{font-family:var(--font-display);font-size:15px;font-weight:700}
+.list .note{font-size:13px;color:var(--mut);min-width:0}
+
+/* ---------- pontos de atenção ---------- */
+.att-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.att{background:var(--card);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;gap:7px;min-width:0}
+.att .tag{font-family:var(--font-display);font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
+.att.risk .tag{color:var(--risk)}
+.att.warn .tag{color:var(--warn)}
+.att p{font-size:13.5px;color:#39414b}
+
+footer{
+  border-top:1px solid rgba(255,255,255,.25);padding-top:16px;margin-top:6px;
+  font-size:12px;color:rgba(255,255,255,.72);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+}
+
+@media (max-width:760px){
+  .wrap{padding-block:32px 24px;gap:24px}
+  .list li{grid-template-columns:1fr;gap:7px;padding:15px 18px}
+  .list .chip{justify-self:start}
+  .tile .num{font-size:30px}
+}
+.kicker{color:#fff}h1{color:#fff}header p{color:rgba(255,255,255,.85)}footer{color:rgba(255,255,255,.72)}</style>
+</head>
+<body>
+
+
+<div class="wrap">
+
+  <header>
+    <img class="logo" src="data:image/png;base64,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" alt="logo">
+    <p class="kicker">Eco Digital &middot; Gestão de tráfego</p>
+    <h1>Contatos com clientes</h1>
+    <p>Quinta-feira, 15 de outubro de 2026 &middot; 15 clientes acionados por ligação</p>
+  </header>
+
+  <section class="tiles" aria-label="Resumo do dia">
+    <div class="tile"><b class="num">15</b><span>clientes acionados</span></div>
+    <div class="tile ok"><b class="num">6</b><span>com retorno do cliente</span></div>
+    <div class="tile quiet"><b class="num">9</b><span>sem resposta na ligação</span></div>
+    <div class="tile warn"><b class="num">2</b><span>retornos marcados para 16/10</span></div>
+    <div class="tile"><b class="num">4</b><span>preparando a Black Friday</span></div>
+  </section>
+
+  <div class="alert">
+    <b>HD Casa sinalizou o encerramento da parceria.</b>
+    <span>Único cliente do dia com sinal de saída.</span>
+  </div>
+
+  <section>
+    <div class="sec-head"><h2>Contato efetivo</h2><span class="count">6</span></div>
+    <p class="sec-sub">Clientes que atenderam a ligação ou responderam durante o dia.</p>
+    <div class="cards">
+
+      <article class="card">
+        <div class="card-top"><h3>HD Casa</h3><span class="chip risk">Risco de saída</span></div>
+        <p>Informou que pretende encerrar a parceria.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><h3>Laura Colchões</h3><span class="chip warn">Retorno 16/10</span></div>
+        <p>Pediu para retornar a ligação em 16/10.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><h3>Araujo</h3><span class="chip brand">Black Friday</span></div>
+        <p>Contato feito. Conversamos sobre os conteúdos e os eventos de Black Friday, e as sugestões de conteúdo com tema Black já foram enviadas.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><h3>O Baratíssimo</h3><span class="chip brand">Black Friday</span></div>
+        <p>Falei com o Rafael: o mês está fraco, mas ele entende a necessidade dos conteúdos de esquenta da Black Friday. Os conteúdos já foram enviados no grupo e estão subindo nas campanhas. Ele pediu o Eco Hub para pausarmos os conteúdos de produtos já esgotados — já foi enviado.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><h3>Carrossel</h3><span class="chip brand">Black Friday</span></div>
+        <p>Não atendeu a ligação, mas a conversa segue no privado. A Fabi deu um bom feedback de vendas do mês, está se organizando para a Black Friday e procurando contratar uma vendedora para o período.</p>
+        <div class="tags"><span class="chip neutral">Conversa no privado</span></div>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><h3>Almeida</h3><span class="chip brand">Black Friday</span></div>
+        <p>Contato feito e sugestão de conteúdos enviada. Combinamos uma ligação ou reunião de treinamento com as vendedoras para entender onde está a dificuldade de venda, e eles já vão se preparar para a ação de esquenta da Black Friday.</p>
+        <div class="tags"><span class="chip ok">Treinamento a agendar</span></div>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Sem resposta na ligação</h2><span class="count">9</span></div>
+    <p class="sec-sub">Ligações não atendidas no dia.</p>
+    <ul class="list">
+      <li><span class="nm">Tatiana</span><span class="note"></span><span class="chip neutral">Não atendeu</span></li>
+      <li><span class="nm">Santa Rosa</span><span class="note"></span><span class="chip neutral">Não atendeu</span></li>
+      <li><span class="nm">Casa Maranhense</span><span class="note">Não atendeu por estar em horário de almoço; novo contato em 16/10.</span><span class="chip warn">Retorno 16/10</span></li>
+      <li><span class="nm">Lindomóveis</span><span class="note"></span><span class="chip neutral">Não atendeu</span></li>
+      <li><span class="nm">Bella Casa</span><span class="note"></span><span class="chip neutral">Não atendeu</span></li>
+      <li><span class="nm">Casa da Poltrona</span><span class="note"></span><span class="chip neutral">Não atendeu</span></li>
+      <li><span class="nm">Atacadão Casa Vi</span><span class="note">Não atendeu a ligação; enviou apenas um “oi” no privado.</span><span class="chip neutral">Só mensagem</span></li>
+      <li><span class="nm">RH Móveis</span><span class="note"></span><span class="chip neutral">Não atendeu</span></li>
+      <li><span class="nm">RP</span><span class="note"></span><span class="chip neutral">Não atendeu</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Pontos de atenção</h2></div>
+    <div class="att-grid">
+
+      <div class="att risk">
+        <span class="tag">Risco de saída</span>
+        <p>HD Casa informou que pretende encerrar a parceria — foi o único cliente do dia a sinalizar saída.</p>
+      </div>
+
+      <div class="att warn">
+        <span class="tag">Retornos de 16/10</span>
+        <p>Laura Colchões pediu a ligação de volta e Casa Maranhense estava em horário de almoço.</p>
+      </div>
+
+      <div class="att">
+        <span class="tag">Esquenta Black Friday</span>
+        <p>Araujo, O Baratíssimo, Carrossel e Almeida já iniciaram a preparação de conteúdos para a Black Friday.</p>
+      </div>
+
+      <div class="att">
+        <span class="tag">Eco Hub</span>
+        <p>Solicitado pelo O Baratíssimo e já enviado, para pausarmos os conteúdos de produtos esgotados.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <span>Relatório interno de contatos &middot; 15 de outubro de 2026</span>
+    <span>Eco Digital &middot; Gestão de tráfego</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
