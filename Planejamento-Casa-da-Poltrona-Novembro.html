@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Novembro de Casa Nova</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600..700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+*{box-sizing:border-box}
+:root{
+  /* Layout: capa verde com selo da marca, corpo em bandas e cronograma em rail de datas */
+  --bg:#f5f8f6;
+  --surface:#ffffff;
+  --ink:#1a1d24;
+  --muted:#5c6f64;
+  --line:#d9e6de;
+  --soft:#eaf4ee;
+  --brand:#1b7a43;
+  --brand-deep:#166336;
+  --cover-bg:#1b7a43;
+  --cover-ink:#ffffff;
+  --cover-muted:#dcefe3;
+  --cover-accent:#ffffff;
+  --radius:16px;
+  --font-display:"Fraunces",Georgia,"Times New Roman",serif;
+  --font-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0c130f; --surface:#131c16; --ink:#eef4f0; --muted:#9bb0a4;
+    --line:#24352b; --soft:#16221a; --brand:#35a866; --brand-deep:#57c98a;
+    --cover-bg:#1b7a43; --cover-ink:#ffffff; --cover-muted:#dcefe3;
+    --cover-accent:#ffffff;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0c130f; --surface:#131c16; --ink:#eef4f0; --muted:#9bb0a4;
+  --line:#24352b; --soft:#16221a; --brand:#35a866; --brand-deep:#57c98a;
+  --cover-bg:#1b7a43; --cover-ink:#ffffff; --cover-muted:#dcefe3;
+  --cover-accent:#ffffff;
+  color-scheme:dark;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:17px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{
+  max-width:1060px;
+  margin:0 auto;
+  padding-left:max(20px, env(safe-area-inset-left, 0px));
+  padding-right:max(20px, env(safe-area-inset-right, 0px));
+}
+.band{width:100%}
+
+/* ---- capa ---- */
+.cover{background:var(--cover-bg); color:var(--cover-ink)}
+.cover .wrap{padding-block:64px 56px}
+.cover-top{display:flex; align-items:center; gap:18px; flex-wrap:wrap}
+.badge{
+  width:74px;height:74px;flex:0 0 auto;border-radius:18px;padding:7px;
+  background:#fff; box-shadow:0 3px 12px rgba(0,0,0,.22);
+}
+.badge img{display:block;width:100%;height:100%;object-fit:contain;border-radius:12px}
+.cover-id{display:flex;flex-direction:column;gap:2px;min-width:0}
+.cover-id strong{font-size:1.05rem;font-weight:600;letter-spacing:.01em}
+.cover-id span{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cover-muted)}
+.kicker{
+  margin:34px 0 0;
+  font-family:var(--font-mono);font-size:.76rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--cover-accent);
+}
+h1{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:clamp(2.3rem,7vw,4.4rem);
+  line-height:1.02;
+  letter-spacing:-.015em;
+  margin:10px 0 0;
+  text-wrap:balance;
+  font-variation-settings:"SOFT" 20,"WONK" 1;
+}
+.cover-sub{
+  max-width:46ch;margin:20px 0 0;
+  font-size:clamp(1rem,2.2vw,1.15rem);
+  color:var(--cover-muted);
+}
+.cover-sub b{color:var(--cover-ink);font-weight:500}
+.cover-meta{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:18px 32px;margin-top:40px;padding-top:24px;
+  border-top:1px solid rgba(255,255,255,.14);
+}
+.cover-meta div{min-width:0}
+.cover-meta dt{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cover-muted)}
+.cover-meta dd{margin:6px 0 0;font-size:1rem;color:var(--cover-ink)}
+.cover-meta a{color:var(--cover-accent);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35)}
+.cover-meta a:hover{border-bottom-color:var(--brand)}
+
+/* ---- seções ---- */
+.section{padding-block:56px;border-top:1px solid var(--line)}
+.section:first-of-type{border-top:0}
+.section-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px}
+.num{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.12em;color:var(--brand-deep)}
+h2{
+  font-family:var(--font-display);font-weight:600;
+  font-size:clamp(1.5rem,3.6vw,2.05rem);line-height:1.15;
+  letter-spacing:-.01em;margin:0;text-wrap:balance;
+}
+.lead{max-width:64ch;margin:16px 0 0;color:var(--muted)}
+.lead strong{color:var(--ink);font-weight:600}
+
+blockquote{
+  margin:32px 0 0;padding:0 0 0 22px;
+  border-left:3px solid var(--brand);
+  font-family:var(--font-display);font-style:italic;font-weight:600;
+  font-size:clamp(1.15rem,2.8vw,1.5rem);line-height:1.4;
+  color:var(--ink);max-width:44ch;text-wrap:pretty;
+}
+
+/* ---- pilares ---- */
+.pilares{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:32px}
+.pilar{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 22px 24px;min-width:0;
+  box-shadow:0 1px 0 rgba(25,22,16,.03);
+}
+.pilar h3{
+  margin:0 0 8px;font-family:var(--font-display);font-weight:600;
+  font-size:1.12rem;letter-spacing:.01em;
+}
+.pilar p{margin:0;font-size:.95rem;color:var(--muted)}
+.pilar-rule{width:28px;height:3px;background:var(--brand);border-radius:2px;margin-bottom:14px}
+
+.callout{
+  margin-top:30px;padding:20px 22px;border-radius:var(--radius);
+  background:var(--soft);border:1px solid var(--line);
+  font-size:.95rem;color:var(--ink);max-width:70ch;
+}
+.callout b{font-weight:600}
+
+/* ---- cronograma ---- */
+.semanas{margin-top:28px}
+.semana{
+  display:grid;grid-template-columns:180px minmax(0,1fr);gap:14px 32px;
+  padding-block:26px;border-top:1px dashed var(--line);
+}
+.semana:first-child{border-top:0;padding-top:8px}
+.sem-data{display:flex;flex-direction:column;gap:4px}
+.sem-num{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-deep)}
+.sem-range{font-family:var(--font-mono);font-size:.9rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.semana h3{
+  margin:0;font-family:var(--font-display);font-weight:600;
+  font-size:1.22rem;line-height:1.25;letter-spacing:-.005em;
+}
+.gancho{
+  margin:12px 0 0;padding-left:14px;border-left:2px solid var(--brand);
+  font-family:var(--font-display);font-style:italic;font-size:1rem;
+  color:var(--ink);max-width:52ch;
+}
+.acoes{margin:12px 0 0;font-size:.95rem;color:var(--muted);max-width:62ch}
+
+/* ---- criativos ---- */
+.criativos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:30px}
+.criativo{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;min-width:0;display:flex;flex-direction:column;gap:10px;
+}
+.cri-tag{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;color:var(--brand-deep);text-transform:uppercase}
+.criativo h3{margin:0;font-family:var(--font-display);font-weight:600;font-size:1.1rem}
+.criativo p{margin:0;font-size:.95rem;color:var(--muted)}
+.cri-gancho{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font-size:.92rem;font-style:italic;color:var(--ink)}
+
+/* ---- tráfego ---- */
+.verba{display:block;margin-top:30px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface)}
+.verba-row{padding:20px 22px;border-top:1px solid var(--line)}
+.verba-row:first-child{border-top:0}
+.verba-top{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.verba-nome{font-family:var(--font-display);font-weight:600;font-size:1.06rem}
+.verba-val{font-family:var(--font-mono);font-size:.95rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.verba-val small{color:var(--muted);font-size:.8rem;margin-left:6px}
+.trilha{height:8px;border-radius:4px;background:var(--line);margin:12px 0 0;overflow:hidden}
+.trilha i{display:block;height:100%;background:var(--brand);border-radius:4px}
+.verba-row p{margin:12px 0 0;font-size:.93rem;color:var(--muted);max-width:60ch}
+
+.trafego-nota{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-top:24px}
+.trafego-nota p{margin:0;font-size:.95rem;color:var(--muted);max-width:66ch}
+
+/* ---- comercial ---- */
+.comercial{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-top:26px;max-width:70ch}
+.comercial p{margin:0;font-size:.98rem}
+.comercial p.muted{color:var(--muted)}
+.vantagens{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:10px}
+.vantagens li{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:14px 16px;background:var(--soft);border-radius:12px;
+  font-size:.94rem;
+}
+.vantagens li::before{
+  content:"";flex:0 0 auto;width:8px;height:8px;margin-top:8px;border-radius:2px;
+  background:var(--brand);box-shadow:0 0 0 1px rgba(25,22,16,.12);
+}
+.alerta{
+  margin-top:22px;padding:18px 20px;border-radius:var(--radius);
+  border:1px solid var(--line);border-left:3px solid var(--brand);
+  font-size:.94rem;color:var(--ink);max-width:66ch;
+}
+
+/* ---- rodapé ---- */
+footer{background:var(--cover-bg);color:var(--cover-muted);margin-top:0}
+footer .wrap{padding-block:40px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.85rem}
+footer b{color:var(--cover-ink);font-weight:500}
+footer span{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.08em}
+
+@media (max-width:720px){
+  .semana{grid-template-columns:minmax(0,1fr);gap:8px}
+  .sem-data{flex-direction:row;align-items:baseline;gap:12px}
+  .cover .wrap{padding-block:46px 42px}
+  .section{padding-block:42px}
+}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important;animation:none !important}
+}
+a:focus-visible,li:focus-visible{outline:2px solid var(--brand-deep);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<header class="cover band">
+  <div class="wrap">
+    <div class="cover-top">
+      <div class="badge"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAIAAAAErfB6AAAZXUlEQVR42u1deXhU1fk+y71zt7kzk5UEErJJEokiUTaxCghqC4qAtWpptRWpS6tdfm48VqG41Gor3URQa8VWili0bli3WsQFkUqBgEIASUI2ss1k5s69c+895/z+OGGMqSLWGhI8L3l48szcWXLf+53zLe/3XVg15zggcPQCiVMgCBYQBAsIggUEwQKCYAFBsIAgWBAsIAgWEAQLCIIFBMECgmABQbAgWEAQLCAIFhAECwiCBQTBAoJgAUGwIFhAECwgCBYQBAsIggUEwQKCYEGwgCBYQBAsIAgWEAQLfF5IA/nLQQgH7HdjjAmCP+8Z9IkPwYDjmAGGIEIICYI/F7uyJIW18AA0FAih7/uWYw3Ai29wEIwQSiQTJ438ym9v+A2hBMEBZCuEEglLb25565o7r9E1nVIqCP6vLViOmJGB+fXCwfBg2YPRQN6DGWOEkoFzKrlbwP8XXvT/yItmAELYeKCxrqlOkqQjwjWEwPf90sLSvKw8/q0Gsns/mAgGAFBKMcJP/uPJny1bnBnJIkfCdDCWuqKdd//k7ktmXkwpBVjEwf9ryJKsq7quqITQI0EwSqm6JEkAiETHF7b5UUYpY5QdAYIhg5TRweJViVTlUZ66EgT/l9kr3/cEwQKCYAFBsIAgWEAQLCAI/kwYRPlnQbCwYAFBsIAgWACIYgP4QsvJEEAAAWD83+DMJguCP0IqgFzv6FPieS4XhEAAMcYSliQsAQAopQywPpcCguiTNHQYYYTQwJdfHf0EY4x9348n4oyxUDCUn50fCoaUgOL7XizR3R5tj8ajEEJDMyRJIoRACBFClNCUm/J8jxDCiYcAMgDAwd8lWYpbcdd3BcFHzpWAiAEW7Y6GzfD0U6dPHXf6CRUn5GXnGarB5TVJJ9nS0bpl55ZX3n5l/bvro93RcDDsuI6dcoKaUTy0uGRY8dDcYVnhrKBmBAIKpdRJ2ZaT7E7EYonuD/bvzc3MHeBa/KOWYIyw46YI9S/62oXzZs8bMXwE6KVyZZRBCHVVLx1WUjqsZPbps3Y37HnwiQcef+mvpcNKZ06eOXnMpPKiciWgHKakVxDc38uylbRyM3Nuv/r2KWOncFIJIQE5wLnvfbDnewjhYwrL7vzhnd848xsjho8wDTMtl/ykfgWu7xxcWrujhGCMcCKZKB1W+uCiB4ryi/gmKmEJI+x6bs3umr379ybshBpQC/OGHz/i+JBhAgAoo4CBE489EQBACMEYQwglLBFK2rvao/Go4zqUUoyxrurhYNg0QrIkCS/6COy7juvkZeX9cfFDBUMKuAlihG3HXvHMiif/8bcP9n+Q8lKMMQBBQArkZOacefKZC+bdqMgKQIBSyp2shpaGf25at7Fm4979e9u62pJOkoufIYSyJBuakRnOVAPqledfccbJZ3CVpyAY9I+MhjG25Lp70uwihLbWbrthyQ3bdm/TVV1RFE3VAAQQQMZY04Gm4qHFsiQzwCD7cL29+d6bn33tuVAwhBGWJAkjLEsy/wBKaSweiyVirR2tZ5185mBUZqHBu/XG4rF5s+eNO24cIYSzu2HrhrkL5u6q35WTkaMGVN4YQQhhjHXFowuvWPjdc7+DIEIQ8Q2VG/GZJ59pGmbEjGiKxgNlvukywCCEkiQpAcU0TDWgilRl/6WoUm6qML/wivMv5yaFENrbuPeqO77veq6pm57vpQW2GONoPDZryrmXzvquT3we6R7oPBCNR7lLdeKxJ6qK6nrux2pjOdeUUp+KcmE/th9atnXhWReGg2FKKUSIUHLLvQs7Y52aovUu3EIIXc/Nzcr56fybGGMIIgggA+zHd//knZp3+CodCoZ1VefWDEQ9GAyM2nuGmTFz8jkMMMoogvCFN1987d3XImakDw28E/WSsy/OzczlGUoI4evvvv7Cmy+kE5OE+IQS3gd1CHi+ILi/zNd27NGVo4vyiwADEpYYYyvXPiphqU/fA4TQ87zczNzzzzyfMQYR5C3bK5//i67pFcWV3FNr7Wy1khZCiB2SYaGL7r8N2PO9sVVjuClDCOtb6rfWbtNUrU89AEGUdJITRk0YkjWElxwQQtF49MW3Xrzy/CuG5xV6vgcB3FjzjuM6n5qiGqRLtDQYW0gkLB1bemw6aHlv73uWbYWDYUJJnzQIgGDiCRN5QMUvjl11uy6bPe/GS2/kswM833tm3TNqQGWUfWqfoyAY9E9DqaZohUMK04/U7K5p62qjjBKf9FnMHdcpKyzjVeEen7nyxHHHjeOOsSzJy1ffv33Pjgwz0ufiEBZ8xNZnQoiu6ny6A8YYADB57OTsSHYgEOjtB2GEZClgaPpxZVV8ue75gyXJ8z1ZkmVJ/ts//rbkz0tCQfNT2R28zWfSYExgyZIsy3KatjEjx4wZOebwR27JkhxPxu9bvez+v96vBBQeOH36mRL9waAfR9303hG5IKevkcGDkp2PmmBnd+dfX1qz+sXVtfW14WD48E1TwrLwovvDfnmNIZFM9FALgO/7dsr2fI9SSlnPj+/7tmO3R9tdr0eJQRmFENbW775l6S2NBxozQhk9GcnDg6qowoL7Y33GCFu21dzeUjy0mBCCJFSzu+bqO68xNAMhlM5XEOoTQpo7Wm69avGcqXMIIdzJOraksryovCPa8Vm9YlMPCgvuFz8LQddzd+7bmd44C4YUWLa1p2HPnoY9tXW1tfW1tfW1HzTua2pvjsVjr/1rfXo0DmU0HAxXlY5MOsnPMF+NAYxwZjhLENxPVowR3rR9EwQQI0wpzcnIOXnUyZRRXdM1ReM/SkCRsBQyQhu2vtUZ60QIMcZ4sDtr6mxeJD78yDsgBwqGFAxGTdbgI5gyqqnaxpqN7V3tEEGenrzwqxcQSgED6T24J9KV5eb2ljf+/SYDjIs0GGNTx51eXVmdSCYOp3TPg+nhecMrisr5GFJB8BeeyQrIgeb2lmfXPwcBhABSRk876bRzTpvRHm3nUqzeByOE1ry8psenPjgkccG8BfxqOLRFcr100klefdEPelKhUCzR/ZLM0lVtxdMPJ5IJiCB3hhdftXh0xegDnQcwxhhhzhyl1DTM9ZvXv7H5DYQQoYRL2McfP+6m+Td1xjp54vNjqeVZlNaO1ivOv+LcKecOOrHOICaYMaYq6p79e3+z8rcIIq6+yAxnPnLbipmTZ8YS3dFE1PU8nglBEElYuu3B2/mazG2aUHLprO/ecc0dhJBoPMoYwwingSDyiR+NR1Nu6sZ5N/50/k2U0kEnmOXAucfmDsB8pOu5JcNK0nazacem9e+u11QtHbZyjt/e9vaIohEVxRWEEACBruozTp1RXTmaMWDZiaRj267tuA6GuL6lPpaITRk3Jb3wUkqrK0dPHjOpo7uzua252+q2bMtO2VxSmRHKmDZh2h1X3zFryrn8mvhwzYeorrn+qVefCsiBgZ+/HNyyWVVRr/3VdUpAnTru9B5tM0KTTpo06aRJlm01tTV3dXem3JQkSaZuGprBK4YM9LjThJLjjjlu+U+XNbQ2vP/B+y3trZRRQ9MLcgtGDB+RFcnii/wgtd3Br6pkTEKST/yrbr/quu9cd9nseXw3dT2XNyCNGH7Mf27ehBCEPxS4e74HACgcUti7PNX7Kb6eg15Z0sFVOhzc/cGUUYyxLMm3Lr917oJvrX93Pfexe3SvByVzvWMejDEEcOe+nTW7awAAvKwEPmECqizJGOHePwEpgBE2NONw6hPCgv83dgwBjJiRt7a+9fa2t0eVj5oydnJ1ZXVRflFGKINvk5RRJ+V0xDrrm+tr9tRs2LJha+1WQklVadWYqjHlxeV5WXmGpiOIUp6bch0AgE982lcCwHiuW8LS9j07uFRIENxPCWpCSVAPAga27tr6zvZ3AnLA1M1QMJRWRzspp9vqTjpJXgzWVR0jvHnn5rdrNiIIZUnmDSyUUr4Ifyx56QcxxvydBcH9GhwDAHRNN3SDMeb53oGOAzzPxd1mjHFQD0IIeZILAGBoRlCHPS0SB5fcw0pGMnBEBhuLDv8P3R8EEZJR36HTH3WOPtZXOsoGPUiDRanD5yh8nrP/xdUJ+IXCC1afqcYsCO6B67kxK8bnLgzAr6epmoQkj3hOylECiizJA4djaeDbLgCgKL/ojPHTTCM0AANQxtj2Pduj8WhWJGviCRN319c2tTcPHBdMGvh9DACAmZNnzpw8c8B+ybOu/Cqh5M93/PmYwrKW9pZv33RxfUu9IisDwREb0DenJIRQRhlkaeX6QAvPeLEykUxMGDXhmMIyy07mZedNGTt56eplqqICIiz4kLe2wxjjwXCXIl3V3//g/ZSbMjQdALB9zw4l8JE6BFfeH5FrVBqY7CoBpa65bunq+xhj8L8dicbvmsYXeUppj0yHfe7boPVS6wIIKSV2ym480Hjpwnmnnnjqph2bNtZs5P2o6RcRRrge9Ag4MVVzjhuwHWaWbX3OtyHUT9pJntP44opCpm5KWLIcy/VcPtbjI+YLoYxlAIHne/1vxAN6ic4MZ36emYY+8TNDmeNHjWeMvbnlzbgVxwh/niIBt39umr0vF+4rGJoR1IO90ym8sD00Z+iDix5QA9oP7/rh5vc3G5rRn7GAdEQnhQJ2yMwRo/STDuBdC5/kfPHEiO3Yw0YMu/vHdwEAzv3RrLbONk3ROMF9XpWWa/X5vff2iRBK2Na4qrELr1yUtJM/uutHB7oO9A55PzbFwV9YlF8kYUkJKF8KC+YZH9dzucwxIAX6TAflGSvP8yijGGFZlnvnfvmzfKSGjGVZkvvM1uBDsjzg8Y2S97mkjYbP0uJzWD483nf57DSEUE8Z+OABhJK0mJIQoipqZXFFWtvVW5vn+R7vV+ZFxnQVGUHkei5XCx399WD+18ateMSMDM8fbqhGNBHtrW7kQxeclJOVkTU8f7hpmHErbqdsCCEDDCGUtJNOyhmSNaRkaImqqNF4tGcAw0HPJ5aIZYQyivKLCCWWY/E6bu+sk6mbvS0vloiFjFDx0GIAgGVbpm4G9SBX3KWP52VHCUuaqlNKLTupqRp/Ez4RJhqP6qpeNLRoaM5QSmksEUu7VLyufKQE1VI/Zy2clJOfk3/dJdeeNfEs3uW36vlVv370N5RSBBFEMJFMTBoz6fvfuGpM1RgAgJ1yXt7w0n2rl+1t3KsElISVqK4cfe0l104YNQEA0BnrXPPymt8/dq/neVzzTAhZMG/BeVPnmIa5Y+97T//zaZ/4nGBOxn03LS0tKL3nT/c8+tzKjFCGZVtXX3T1t2bMDZvhfY37Vv191aWz52mKesVtV27ZtUWW5Lt+fNcJ5aP++NTDv3joF3Omzv7FD+8EAOiKtvLnj9718F1/eX5VUA+WDCv+9tkXTxk7OS87L+Wm9jTseehvf3x63dOmbjLGuMrz6I+DIYQ+8YN68KFFfygrLHtu/dotO7dMmzBt/nnzNVX76b03Z5gZ3Vb3+OPH/WHhgwihZ9Y9s791f3Vl9TmTzikYUnDRjd+0HbuypHLFbSsMzXjilSeb2hrPPu3s+efNz8nI+cmv/i8cDHfGOi+bc9nlX/8e/8TqytHVlaMppbBXcJOblZsdyTY0A0IYT8ZnTZn1fxf/hD9VWVK56MpFB3sJJcAAYCAnkpMdyQ4ZIUKJElBNw+TzeDJCGZqiAQCclHPetPO+NWMuXwxM3Tx+xPFLrrvHTtkvbXiJz1Xk5guPboIRQtF47IKzLigrLFu8fPF9jy9TA+ryNfc/cMvyudPn/uHJh1o6Wiil82bPQwhduvDS59avVWQFQjjr9Fn7mvZBAFNe6vKvf8/QjKtuv2rNK08EpMB9q5etuPXhWafPWrr6vrrmOk3RZk6eSSmtra+9fsn1nd1dt1x+yxkTpvUuUXiexxgjPfUfdO7kmZTShtb91y+5vqGl4drvXDt7yizeP84AS8c2nu+ahvnqO68uXn7rLZffnLCt+T+bv3PfzqAeBAD8+tHfdHV31TXVbdrxL0MzFl2x8LSTTps7/Zsvb3iZMYYROoINL6g/M3sQgLFVYx3XWfHMI3xiYMKK/37VvYyxUeWjkrZlGmZVWVVDS8P6d1/Py8rLDGeGzfDT/3z6vb3vSZKkq/roitGdsc51/3otNzN3SPaQaCK2+sXVAICK4vKkk4yYkZyMHITQqr8/tmHb23XNdcsfX84XD/ZRFw8CSCgxNH1I1hCE0NP/fOrVd15tbm9e+thSvqNjbsG9buiOIEokE23RNr7a1zfXd1vdPe6V59318N3PvvacnbLf/+D9P699FEKYm5WrqRp3x74UqUoGGMbY1IMSlh65bUX6LOuqgRAqyB3mExKQArqq1zXX805ALm4NGSHKKJevyrIcT8Z5QOL5nowlLnDPCGUSQiRJCsgyACCaiAb1oIzlQ7Tl81Cbj4mOxWOGZuiqDgH0fE/CkoQ/JmJGCKUVekpAkZDEG1sqiisu//r3yosqQsEQY5Q7aBjiL101qWeEPqWmYfKwgc/c2LR9U+OBJgnLPH3fJ53Y50QfbrDBwKFzGnxCaU/se1BKQIjPgx8Jy1zOBz5BMcKnB/jEj4QiDyy8Pz87HwDQ1tUGocT35vSnEPphgNf/a7XUn7fL8Invel7Ssc+++hyMMJcx2ymbC1FNI2g7tuVYakD1fE9Xdc5QIpngWQIn5Vh2MqgZPvFVSZWxTCnl7Q6u7/ZI5gjhoa2dshWm+IccT0cpJcQHACAI7ZQtyzJljNvfxzIBIXRdl19llm1RSl3PPWX0KfnZ+fUt9fMWXdYR7UjYiSljpiy/eVlaDpbyUj7xJSwlbMv13GD/NpKj/rwhCmPs3ffejZjhudPn2inbJ77lWCNLR1aWVPJTYNnWjj07SgtKTx41oamtORqPtnW2TRg1YXj+cM/3HNfZumtLXnbeV6q/0tze0tbVBhE88+QzIIS79u3SVC0aj7ZH2ymlc6d/s6psZMSMXPDVCziR8KPDRQFgGGPLtg50tlFK50ydM7ZqrKZol8y8hE+VTfPbOz+FIErYCcaYLAfGVo3NCGX4xOchsu/7rR2tHbGOru6u7EhW+lU8cE86NmVswvETCoYUEEJgPzrUUn/K4QzNWPPymrkz5v78mjsmjp64bdfW/Oz8b5/97dbO1uk/mEEowRivfH7l1PFTH7n9kZVrV9Y1140sHXnetPM2v7/5whsuCsiBVX9/bM7UOQ/ccv8fn3q4vqV+xqnTxx8/fu3ra7fs2hIyQh2xjrWvP19VVlVdWf3s757l9t1nQI6EpbTf5BPy3OtrJ46eWFFc8eSSJ1JuKqgH+aXm+T5PrXA5LfcJZElubN0PIVQDyu9u/O2t99+29LGlu+p2UkpLC0qfv3ft9j3bM8OZfOQPT4NIktTW1dadiIUM84bvXl9SUHLtr67NCGX0m/aoX5vPJEmKxqNv/PuNkmHF08ZPPfXEU6srq7fs2vLLR35V11THPZfa+tr9LQ3lReWTx06edNKkkaUjN27beM+flrR0tGiqVtdUt7thd0VJxbQJ06aMnZKXnfeXv69avGwxNwlFVja/tzk7I7ussExV1I5Yx4pnVpQXlfvEX/3S4x3RjoAcmHHajFAwtG7Tun/v3BIxQ1t3bTX1YEVJhRJQkk7ykWf/VFVWJUvyqhcea2prwhh/7ZSv5WRkb9i6YcO2t03DbIu2qwG1tKAUI7zuX+tqdtfEk4nGA/srS48tGFJQVlgW1IMvvPXi8LzhLe0ta155AiOctJNd3Z1VZVWyLG/btfXVja+qSv8Jevq7XMhHiQIICocUhoxQLBFrPNDYe2dCEHVb3aZhDs0ZamhGNB7d37rfJz6vwSGI4sm4oRlF+UWaorZ0tO5vbdRVjaexIISEklQqdczwspAR3te0L5aIDcsdShmLdkd5ojhiRmRZjifidspGCPm+H41Hi4cV52fn1+yuGVU+6q+/fNz1vFk/mlXbUKsG1JARUgKBRNKybIvfvMdJOblZuaZudnV3cf8gnoxnhjMLcgsQRg0tDXErPjRnqOd70XiUb8NJJxkOhjNDmZZjdSe6+9PVOgL1YF4tSLkpQglGWAko3D/qXS3wic/LCf95AEbYp37KTTHKZEkOBAK9t0m+nDoph1CiyArGmI9R4isz70lJdwNTRhFEC+YtaGprWrl2ZcSM/OzKRadUn9LacWD696e7nstrD/z4dDiLIHJ9l1IqYYk/yC8U13MZYAE5IGGJN8ClW8sRQj7xfd/nn3uUV5M4VZw2dhDgo3POIISaonG/rM8BhBIIoK7o/Nk+tVV+cO8350Md0u/AA1m+GHQnuuefN/+bX7sIAHDNRVenxz889OQfuuJdYSNMKEnfvyEddPHNuPeDPbdowXr6C/f5UN7ljAO4/4X1R7IB/NB/6qGFdp8qw/vU88hp2F2/23Gd3IyccDDs+u7OfTt//eivH31upaEZn1UTOTCVgQNUstN/oTn1LTuZEYrkZORQSlvaWyzHChmho6aBRQJfYjDAJCRlmBHf9+ub63mtPhKMHM7wWUHwYGo9RRDxpDTvNQWi+ezooxkwcYt3AUGwgCBYQBAsIAgWEAQLCIIFwQKCYAFBsIAgWEAQLCAIFhAEC4IFBMECgmABQbCAIFhAECwgCBYECwiCBQTBAoJgAUGwgCBYQBAsIAgWBAsIggUEwQKCYAFBsIAgWEAQ/GXE/wP4ZZRw9rpXtwAAAABJRU5ErkJggg==" alt="Eco Digital"></div>
+      <div class="cover-id">
+        <strong>Eco Digital</strong>
+        <span>Planejamento de campanha</span>
+      </div>
+    </div>
+
+    <p class="kicker">Casa da Poltrona</p>
+    <h1>Novembro de Casa Nova</h1>
+    <p class="cover-sub">
+      <b>Um novo cantinho, um novo conforto, uma nova sensação de lar.</b>
+      Você não precisa reformar a casa inteira para transformar seu ambiente.
+      Às vezes, uma poltrona faz toda a diferença.
+    </p>
+
+    <dl class="cover-meta">
+      <div>
+        <dt>Período</dt>
+        <dd>26/10 a 30/11/2026</dd>
+      </div>
+      <div>
+        <dt>Verba-base</dt>
+        <dd>R$ 1.500/mês</dd>
+      </div>
+      <div>
+        <dt>Duração</dt>
+        <dd>5 semanas</dd>
+      </div>
+      <div>
+        <dt>Loja</dt>
+        <dd><a href="https://homedock.com.br" target="_blank" rel="noopener">homedock.com.br</a></dd>
+      </div>
+    </dl>
+  </div>
+</header>
+
+<main class="band">
+  <div class="wrap">
+
+    <section class="section" id="posicionamento">
+      <div class="section-head">
+        <span class="num">01</span>
+        <h2>O posicionamento da campanha</h2>
+      </div>
+      <p class="lead">
+        Não falaríamos que a loja não participa da Black Friday, nem criticaríamos as promoções
+        dos concorrentes. Em vez disso, a campanha se apoia em <strong>três pilares</strong>.
+      </p>
+
+      <div class="pilares">
+        <article class="pilar">
+          <div class="pilar-rule"></div>
+          <h3>Transformação</h3>
+          <p>Mostrar como uma poltrona muda o visual da sala, do quarto ou do cantinho de leitura.</p>
+        </article>
+        <article class="pilar">
+          <div class="pilar-rule"></div>
+          <h3>Acessibilidade</h3>
+          <p>Reforçar que é possível deixar a casa bonita sem investir em uma reforma completa.</p>
+        </article>
+        <article class="pilar">
+          <div class="pilar-rule"></div>
+          <h3>Conforto</h3>
+          <p>Apresentar a poltrona como um investimento no bem-estar da família.</p>
+        </article>
+      </div>
+
+      <div class="callout">
+        O preço continua aparecendo nos anúncios de venda, mas <b>sem descontos fictícios</b>
+        e sem promessas de menor preço.
+      </div>
+    </section>
+
+    <section class="section" id="cronograma">
+      <div class="section-head">
+        <span class="num">02</span>
+        <h2>Cronograma de execução</h2>
+      </div>
+
+      <div class="semanas">
+        <article class="semana">
+          <div class="sem-data">
+            <span class="sem-num">Semana 1</span>
+            <span class="sem-range">26/10 – 01/11</span>
+          </div>
+          <div>
+            <h3>Apresentação da campanha</h3>
+            <p class="gancho">“Novembro chegou e sua casa merece um carinho especial!”</p>
+            <p class="acoes">
+              Lançar o conceito Novembro de Casa Nova. Produzir Reels apresentando os modelos,
+              mostrar detalhes e criar enquetes sobre decoração nos Stories.
+            </p>
+          </div>
+        </article>
+
+        <article class="semana">
+          <div class="sem-data">
+            <span class="sem-num">Semana 2</span>
+            <span class="sem-range">02/11 – 08/11</span>
+          </div>
+          <div>
+            <h3>Transforme seu cantinho</h3>
+            <p class="gancho">“Olha como uma única poltrona pode transformar esse ambiente!”</p>
+            <p class="acoes">
+              Mostrar poltronas em ambientes diferentes, vídeos de decoração e combinações de cores.
+            </p>
+          </div>
+        </article>
+
+        <article class="semana">
+          <div class="sem-data">
+            <span class="sem-num">Semana 3</span>
+            <span class="sem-range">09/11 – 15/11</span>
+          </div>
+          <div>
+            <h3>Seu momento de conforto</h3>
+            <p class="gancho">“Depois de um dia cansativo, você merece um cantinho assim!”</p>
+            <p class="acoes">
+              Explorar os benefícios das poltronas, mostrar pessoas utilizando os produtos e
+              publicar depoimentos reais de clientes.
+            </p>
+          </div>
+        </article>
+
+        <article class="semana">
+          <div class="sem-data">
+            <span class="sem-num">Semana 4</span>
+            <span class="sem-range">16/11 – 22/11</span>
+          </div>
+          <div>
+            <h3>Prepare sua casa para receber</h3>
+            <p class="gancho">“Vai receber a família no fim do ano? Que tal deixar sua sala ainda mais aconchegante?”</p>
+            <p class="acoes">
+              Aproveitar a proximidade do fim do ano para estimular a renovação dos ambientes
+              e o conforto das visitas.
+            </p>
+          </div>
+        </article>
+
+        <article class="semana">
+          <div class="sem-data">
+            <span class="sem-num">Semana 5</span>
+            <span class="sem-range">23/11 – 30/11</span>
+          </div>
+          <div>
+            <h3>Seu novo cantinho começa aqui</h3>
+            <p class="gancho">“Ainda dá tempo de escolher a poltrona que vai transformar seu cantinho!”</p>
+            <p class="acoes">
+              Intensificar a apresentação dos produtos, reforçar condições reais de pagamento
+              e retomar contatos interessados.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="criativos">
+      <div class="section-head">
+        <span class="num">03</span>
+        <h2>Ideias de criativos para gravar</h2>
+      </div>
+
+      <div class="criativos">
+        <article class="criativo">
+          <span class="cri-tag">Criativo 01</span>
+          <h3>Um cantinho diferente</h3>
+          <p>Mostrar uma poltrona em um ambiente decorado, com takes dos detalhes.</p>
+          <p class="cri-gancho">“Sua sala está precisando de uma mudança? Olha essa ideia!”</p>
+        </article>
+
+        <article class="criativo">
+          <span class="cri-tag">Criativo 02</span>
+          <h3>Conforto que você merece</h3>
+          <p>Uma pessoa sentando na poltrona, mostrando o encosto, o assento e a experiência de uso.</p>
+          <p class="cri-gancho">“Imagina chegar em casa e ter esse conforto esperando por você!”</p>
+        </article>
+
+        <article class="criativo">
+          <span class="cri-tag">Criativo 03</span>
+          <h3>Escolha sua favorita</h3>
+          <p>Apresentar três modelos com seus preços reais.</p>
+          <p class="cri-gancho">“Separei três poltronas lindas para transformar sua casa. Qual você escolheria?”</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="trafego">
+      <div class="section-head">
+        <span class="num">04</span>
+        <h2>Estratégia de tráfego pago</h2>
+      </div>
+      <p class="lead">
+        Com o investimento-base de <strong>R$ 1.500/mês</strong>, mantemos a estrutura
+        Feijão com Arroz da Eco Digital: <strong>20% captação, 20% relacionamento e 60% venda</strong>.
+      </p>
+
+      <div class="verba">
+        <div class="verba-row">
+          <div class="verba-top">
+            <span class="verba-nome">Captação</span>
+            <span class="verba-val">R$ 300 <small>20%</small></span>
+          </div>
+          <div class="trilha"><i style="width:20%"></i></div>
+          <p>Turbinar Reels dos modelos mais atrativos para conquistar seguidores.</p>
+        </div>
+
+        <div class="verba-row">
+          <div class="verba-top">
+            <span class="verba-nome">Relacionamento</span>
+            <span class="verba-val">R$ 300 <small>20%</small></span>
+          </div>
+          <div class="trilha"><i style="width:20%"></i></div>
+          <p>Vídeos de decoração, demonstração dos produtos e prova social.</p>
+        </div>
+
+        <div class="verba-row">
+          <div class="verba-top">
+            <span class="verba-nome">Venda</span>
+            <span class="verba-val">R$ 900 <small>60%</small></span>
+          </div>
+          <div class="trilha"><i style="width:60%"></i></div>
+          <p>Campanhas de mensagens para WhatsApp ou Direct com os modelos e preços reais.</p>
+        </div>
+      </div>
+
+      <div class="trafego-nota">
+        <p>
+          Na campanha de vendas, testaríamos públicos frios e de envolvimento do Instagram,
+          com criativos focados em produto, preço, conforto e CTA para atendimento.
+        </p>
+        <p>
+          Importante: essa é uma distribuição de referência para 30 dias, não o orçamento total
+          de 26/10 a 30/11. A verba é ajustada ao investimento disponível da cliente.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="comercial">
+      <div class="section-head">
+        <span class="num">05</span>
+        <h2>Ação comercial sem descontos agressivos</h2>
+      </div>
+
+      <div class="comercial">
+        <p>
+          A campanha precisa ter um motivo para o cliente comprar agora. A saída é negociar
+          com a proprietária uma vantagem que preserve a margem, por exemplo:
+        </p>
+        <ul class="vantagens">
+          <li>Condições de parcelamento já disponíveis na loja</li>
+          <li>Atendimento personalizado para escolher o modelo</li>
+          <li>Entrega facilitada, caso seja viável</li>
+        </ul>
+        <p class="muted">
+          Nada disso entra no anúncio sem confirmação.
+        </p>
+      </div>
+
+      <div class="alerta">
+        <b>Não anunciar</b> brindes, frete grátis ou condições especiais sem confirmação da loja.
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="band">
+  <div class="wrap">
+    <div><b>Casa da Poltrona</b> · Novembro de Casa Nova · 26/10 a 30/11/2026</div>
+    <span>Eco Digital</span>
+  </div>
+</footer>
+
+</body>
+</html>
